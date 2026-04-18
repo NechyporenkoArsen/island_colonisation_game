@@ -14,7 +14,8 @@ int main()
     VideoMode desktop = VideoMode::getDesktopMode();
     pixel_size = desktop.size.y / 320;
 	loc loc(0);
-	MainMenu MainMenu({ float(desktop.size.x), float(desktop.size.y) }, pixel_size, loc);
+	loc.set_maps();
+	MainMenu MainMenu( window, {float(desktop.size.x), float(desktop.size.y) }, pixel_size, loc);
 
     while (window.isOpen()) {
         window.clear();
@@ -33,22 +34,22 @@ int main()
         ///////////////////////////////////
 
         switch (open_win) {
-		case 0: {
-			MainMenu.update(window);
-			MainMenu.render(window);
-			switch(MainMenu.clicked){
-				case -1: {
-					open_win = -1;
-					break;
-				}
+			case -1: {
+				open_win = 0;
+				window.close();
+				break;
 			}
-			break;
-		}
-        case -1: {
-			open_win = 0;
-            window.close();
-            break;
-        }
+			case 0: {
+				MainMenu.update();
+				MainMenu.render();
+				switch(MainMenu.clicked){
+					case -1: {
+						open_win = -1;
+						break;
+					}
+				}
+				break;
+			}
         }
         window.display();
 
