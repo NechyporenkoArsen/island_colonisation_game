@@ -11,6 +11,7 @@ find_package(SFML 3 REQUIRED COMPONENTS Graphics Window System)
 add_executable(isl_game
 	Main.cpp
 	code/menu/MainMenu.cpp
+	code/menu/LangMenu.cpp
 	code/localisation/loc.cpp
 )
 
@@ -43,6 +44,6 @@ add_custom_command(TARGET isl_game POST_BUILD
 
 add_custom_command(TARGET isl_game POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
-    "${CMAKE_SOURCE_DIR}/game_set.txt"
-    "$<TARGET_FILE_DIR:isl_game>/game_set.txt"
+    "${CMAKE_SOURCE_DIR}/localisations.txt"
+    "$<TARGET_FILE_DIR:isl_game>/localisations.txt"
 )
