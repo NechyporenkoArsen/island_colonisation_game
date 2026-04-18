@@ -2,18 +2,25 @@
 using namespace std;
 
 loc::loc(char q){
-	ifstream r_l("game_set.txt"); // read language
-	std::string line;
+	find_loc();
+}
+
+loc::~loc(){}
+
+void loc::find_loc() {
+	l_num = 0;
+	ifstream r_l("localisations.txt");
 	while (std::getline(r_l, line)) {
-		if (line.substr(0, line.find('=')) == "lang") {
-			lang = line.substr(line.find("=") + 1);
+		if (line[0] == '>') {
+			lang = line.substr(1);
 			break;
 		}
+		l_num++;
 	}
 	r_l.close();
-	
-	// create maps
-	
+}
+
+void loc::set_maps() {
 	ifstream read("localization/" + lang + "/menu.txt");
 	while (std::getline(read, line)) {
 		if (line[0] == '&') {
@@ -21,8 +28,4 @@ loc::loc(char q){
 		}
 	}
 	read.close();
-}
-
-loc::~loc(){
-	cout << "close localisation" << endl;
 }

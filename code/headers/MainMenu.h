@@ -1,5 +1,6 @@
 #pragma once
 #include "loc.h"
+#include "LangMenu.h"
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
@@ -12,19 +13,24 @@ using namespace sf;
 
 class MainMenu{
 public:
-	MainMenu(Vector2f w, int pix, loc& lc);
+	MainMenu(RenderWindow& window, Vector2f w, int pix, loc& lc);
 	~MainMenu();
-	void render(RenderWindow& win),
-		update(RenderWindow& win);
-	char clicked;
+	void render(),
+		update();
+	char clicked,
+		menu_page;
+private:
 	std::array<char, 3> btt_hov,
 		btt_cl;
-private:
-	int pixel_size;
+	std::unique_ptr<LangMenu> langMenu;
+	Vector2f win_size;
+	RenderWindow& win;
+	int pixel_size,
+		n_btt;
 	Font dec_font;
-	char menu_page;
 	// Functions
-	void clicked_on(int i);
+	void clicked_on(int i),
+		change_page_to(char i);
 	// Textures & Sprites
 	Texture water,
 		btt,
