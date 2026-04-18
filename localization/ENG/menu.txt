@@ -1,5 +1,5 @@
-&btt.0.0:PLAY
-&btt.0.1:SETTINGS
-&btt.0.2:EXIT
-&btt.1.0:LANGUAGES
-&btt_ret:RETURN
+&btt_play:PLAY
+&btt_settings:SETTINGS
+&btt_exit:EXIT
+&btt_return:RETURN
+&btt_languages:LANGUAGES

@@ -1,5 +1,5 @@
-&btt.0.0:ГРАТИ
-&btt.0.1:НАЛАШТУВАННЯ
-&btt.0.2:ВИХІД
-&btt.1.0:МОВИ
-&btt_ret:ПОВЕРНУТИСЯ
+&btt_play:ГРАТИ
+&btt_settings:НАЛАШТУВАННЯ
+&btt_exit:ВИХІД
+&btt_return:ПОВЕРНУТИСЯ
+&btt_languages:МОВИ

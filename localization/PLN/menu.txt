@@ -1,5 +1,5 @@
-&btt.0.0:GRAĆ
-&btt.0.1:UKŁADY
-&btt.0.2:WYJŚĆ
-&btt.1.0:JĘZYKI
-&btt_ret:WRÓĆ
+&btt_play:GRAĆ
+&btt_settings:SETTINGI
+&btt_exit:WYJŚĆ
+&btt_return:WRÓCIĆ
+&btt_languages:JĘZYKI
