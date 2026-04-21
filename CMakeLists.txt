@@ -13,6 +13,9 @@ add_executable(isl_game
 	code/menu/MainMenu.cpp
 	code/menu/LangMenu.cpp
 	code/localisation/loc.cpp
+	code/game/GameWin.cpp
+	code/game/update.cpp
+	code/game/map/terrain.cpp
 )
 
 target_include_directories(isl_game PRIVATE code/headers)

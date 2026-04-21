@@ -1,4 +1,5 @@
 #include "MainMenu.h"
+#include "GameWin.h"
 #include "loc.h"
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <iostream>
@@ -16,6 +17,7 @@ int main()
 	loc loc(0);
 	loc.set_maps();
 	MainMenu MainMenu( window, {float(desktop.size.x), float(desktop.size.y) }, pixel_size, loc);
+	GameWin GameWin(window, pixel_size);
 
     while (window.isOpen()) {
         window.clear();
@@ -26,10 +28,12 @@ int main()
         // 
         // -1 close
         //  0 MainMenu
+		//  1 GameWin
         // 
         // ===== clicked =====
         // -1 set open_win to -1
         //  0 nothing
+		//  1 set open_win to 1
         //
         ///////////////////////////////////
 
@@ -46,6 +50,22 @@ int main()
 					case -1: {
 						open_win = -1;
 						break;
+					}
+					case 1: {
+						open_win = 1;
+						MainMenu.clicked = 0;
+						break;
+					}
+				}
+				break;
+			}
+			case 1: {
+				GameWin.update();
+				GameWin.render();
+				switch(GameWin.clicked){
+					case -1: { // go to main menu
+						open_win = 0;
+						GameWin.clicked = 0;
 					}
 				}
 				break;

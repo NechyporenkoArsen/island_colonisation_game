@@ -2,11 +2,9 @@
 using namespace std;
 using namespace sf;
 
-MainMenu::MainMenu(RenderWindow& window, Vector2f w, int pix, loc& lc) : lc(lc), win(window) {
+MainMenu::MainMenu(RenderWindow& window, Vector2f w, int pix, loc& lc) : lc(lc), win(window), win_size(w), pixel_size(pix) {
 	clicked = 0;
-	win_size = w;
 	menu_page = 0;
-	pixel_size = pix;
 	langMenu = std::make_unique<LangMenu>(win_size, pixel_size);
 	dec_font.openFromFile("assets/fonts/RutheniaRadaFancy-Regular.ttf");
 	btt_hov = {0, 0, 0};
@@ -114,6 +112,7 @@ void MainMenu::clicked_on(int i) {
 		case 0: {
 			switch (i) {
 				case 0: { // go to play menu
+					clicked = 1;
 					break;
 				}
 				case 1: { // go to settings menu
